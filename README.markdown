@@ -269,9 +269,9 @@ fmt.Println(m["key"])
 
 delete(m, "key")
 
-elem, ok := m["key"] // test if key "key" is present and retrieve it, key exist, map contains key
+value, ok := m["key"] // test if key "key" is present and retrieve it, key exist, map contains key
 
-if element, ok := m["key"], ok{
+if value, ok := m["key"], ok{
     // if key exist
 }
 
