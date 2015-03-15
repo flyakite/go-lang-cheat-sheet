@@ -465,7 +465,7 @@ func main() {
 # Packages
 
 ## Regex
-```
+```go
 // Go offers built-in support for [regular expressions](http://en.wikipedia.org/wiki/Regular_expression).
 // Here are some examples of  common regexp-related tasks
 // in Go.
