@@ -543,4 +543,7 @@ fmt.Println(r.ReplaceAllString("a peach", "<fruit>")) //a <fruit>
 in := []byte("a peach")
 out := r.ReplaceAllFunc(in, bytes.ToUpper)
 fmt.Println(string(out)) //a PEACH
+
+//add "\" to escape "\" from string
+m, err := regexp.MatchString("[a-zA-Z0-9\\.\\+_-]+@[a-zA-Z0-9\\.\\+_-]+\\.[a-zA-Z0-9]+", email)
 ```
