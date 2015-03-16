@@ -107,6 +107,8 @@ func adder() func(int) int {
 func main() {
 	fmt.Println(adder(1, 2, 3)) // return 6
 	fmt.Println(adder(9, 9)) // return 18
+	var numbers = []int{1, 2}
+	fmt.Println(addr(numbers...)) //return 3
 }
 
 // By using ... before the type name of the last parameter you can indicate that it takes zero or more of those parameters.
