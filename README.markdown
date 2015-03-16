@@ -562,6 +562,20 @@ in := []byte("a peach")
 out := r.ReplaceAllFunc(in, bytes.ToUpper)
 fmt.Println(string(out)) //a PEACH
 
-//add "\" to escape "\" from string
+// Add "\" to escape "\" from string
 m, err := regexp.MatchString("[a-zA-Z0-9\\.\\+_-]+@[a-zA-Z0-9\\.\\+_-]+\\.[a-zA-Z0-9]+", email)
+```
+
+## strings
+```go
+// Trim
+strings.Trim("!content? ", " !?") // content
+
+// Split
+strings.Split("first,second", ",") // [first second]
+
+// StartsWith, EndsWith
+strings.HasPrefix("prefix", "pre") // true
+strings.HasSuffix("suffix", "fix") // true
+
 ```
