@@ -237,6 +237,24 @@ var b = a[3:] // missing high index implies len(a)
 a = make([]byte, 5, 5) // first arg length, second capacity
 a = make([]byte, 5) // capacity is optional
 
+// copy
+b = make([]T, len(a))
+copy(b, a) // or b = append([]T(nil), a...)
+
+// cut
+a = append(a[:i], a[j:]...)
+
+// Delete
+a = append(a[:i], a[i+1:]...) // or a = a[:i+copy(a[i:], a[i+1:])]
+
+// Delete without preserving order
+a[i], a = a[len(a)-1], a[:len(a)-1]
+
+// Pop
+x, a = a[len(a)-1], a[:len(a)-1]
+
+// Push
+a = append(a, x)
 ```
 
 ### Operations on Arrays and Slices
