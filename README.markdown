@@ -581,3 +581,53 @@ strings.HasPrefix("prefix", "pre") // true
 strings.HasSuffix("suffix", "fix") // true
 
 ```
+
+## json
+```go
+import "encoding/json"
+import "fmt"
+
+fruits := map[string]int{"apple":1, "banana":2}
+fruitsB, _ := json.Marshal(fruits)
+string(fruitsB) //{"apple":1, "banana": 2}
+
+type Box1 struct{
+  Opened bool
+  Fruits []string
+}
+type Box2 struct{
+  Opened bool     `json:"opened"`
+  Fruits []string `json:"fruits"`
+}
+
+box1 := &Box1{
+  Opened: true,
+  Fruits: ["apple", "pear"]
+}
+box1Byte, _ := json.Marshal(box1)
+fmt.Println(string(box1Byte)) //{"Opened": true, "Fruits": ["apple", "pear"]}
+
+box2 := &Box2{
+  Opened: true,
+  Fruits: ["apple", "pear"]
+}
+box2Byte, _ := json.Marshal(box2)
+fmt.Println(string(box2Byte)) //{"opened": true, "fruits": ["apple", "pear"]}
+
+
+byt := []byte(`{"num":6.13,"strs":["a","b"]}`)
+var dat map[string]interface{}
+if err := json.Unmarshal(byt, &dat); err != nil {
+  panic(err)
+}
+fmt.Println(dat) //map[num:6.13 strs:[a b]]
+num := dat["num"].(float64) //6.13
+strs := dat["strs"].(interface{})
+strs[0].(string) //"a"
+
+str = `{"opened": true, "fruits":["apple", "pear"]}`
+box := &Box2{}
+json.Unmarshal([]byte(str), &box)
+fmt.Println(box) //&{true, [apple, pear]}
+fmt.Println(box.Opened) //true
+```
